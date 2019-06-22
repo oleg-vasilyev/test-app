@@ -1,0 +1,42 @@
+<div class="registration--container">
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field class="control">
+      <input
+        matInput
+        placeholder="Enter phone or email"
+        formControlName="login"
+      >
+      <mat-error *ngIf="loginField.invalid">{{getLoginErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="control">
+      <input
+        matInput
+        placeholder="Enter password"
+        formControlName="password"
+        type="password"
+      >
+      <mat-error *ngIf="passwordField.invalid">{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="control">
+      <input
+        matInput
+        placeholder="Confirm password"
+        formControlName="confirmPassword"
+        type="password"
+      >
+      <mat-error>{{getConfirmPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      class="mat-raised-button mat-accent"
+      [disabled]="registrationForm.invalid"
+    >
+      Submit
+    </button>
+    <mat-error *ngIf="registrationErrorMessage">Oops! {{registrationErrorMessage}}</mat-error>
+  </form>
+</div>

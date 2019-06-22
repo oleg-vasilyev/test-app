@@ -1,0 +1,33 @@
+<div class="login--container">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field class="control">
+      <input
+        matInput
+        placeholder="Enter phone or email"
+        formControlName="login"
+      >
+      <mat-error *ngIf="loginField.invalid">{{getLoginErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="control">
+      <input
+        matInput
+        placeholder="Enter password"
+        formControlName="password"
+        type="password"
+      >
+      <mat-error *ngIf="passwordField.invalid">{{getPasswordErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      class="mat-raised-button mat-accent"
+      [disabled]="loginForm.invalid"
+    >
+      Submit
+    </button>
+    <mat-error *ngIf="loginErrorMessage">Oops! {{loginErrorMessage}}</mat-error>
+  </form>
+</div>

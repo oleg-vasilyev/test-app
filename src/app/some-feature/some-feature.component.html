@@ -1,0 +1,22 @@
+<div class="some-feature--container">
+  <button
+    mat-raised-button
+    class="mat-raised-button mat-primary btn"
+    (click)="onSendMessage()"
+  >
+    Send message from parent
+  </button>
+
+  <app-some-component
+    [message]="message"
+    (messageReceived)="onMessageReceived($event)"
+  ></app-some-component>
+  <app-some-component
+    [message]="message"
+    (messageReceived)="onMessageReceived($event)"
+  ></app-some-component>
+  <app-some-component
+    [message]="message"
+    (messageReceived)="onMessageReceived($event)"
+  ></app-some-component>
+</div>
