@@ -1,0 +1,16 @@
+:host() {
+  display: block;
+  height: 100%;
+
+  .plus-container {
+    display: block;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+}

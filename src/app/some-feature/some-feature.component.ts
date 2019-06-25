@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMessage } from '../shared/models/message';
+import { FormDataItem } from '../shared/models/form-data-item';
 
 @Component({
   selector: 'app-some-feature',
@@ -8,26 +8,27 @@ import { IMessage } from '../shared/models/message';
 })
 export class SomeFeatureComponent implements OnInit {
 
-  private _message: IMessage;
-  public get message(): IMessage {
-    return this._message;
+  private _isFirstComponentClicked: boolean;
+  public get isFirstComponentClicked(): boolean {
+    return this._isFirstComponentClicked;
+  }
+
+  private _thirdComponentData: FormDataItem[];
+  public get thirdComponentData(): FormDataItem[] {
+    return this._thirdComponentData;
   }
 
   constructor() { }
 
   ngOnInit() {
-    this._message = {
-      data: null
-    } as IMessage;
+    this._isFirstComponentClicked = false;
   }
 
-  public onSendMessage(): void {
-    this._message = {
-      data: 'hello from parent'
-    } as IMessage;
+  public onFirstComponentClicked(): void {
+    this._isFirstComponentClicked = true;
   }
 
-  public onMessageReceived(message: IMessage): void {
-    console.log(message);
+  public onDataFromSecondComponentSubmitted(data: FormDataItem[]) {
+    this._thirdComponentData = data;
   }
 }

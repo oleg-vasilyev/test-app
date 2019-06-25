@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatSortModule,
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from './backend/backend.service';
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 const MATERIAL_MODULES = [
   MatButtonModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatSortModule,
 ];
 
 const SHARED_MODULES = [

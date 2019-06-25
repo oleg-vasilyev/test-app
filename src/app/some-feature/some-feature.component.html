@@ -1,22 +1,16 @@
 <div class="some-feature--container">
-  <button
-    mat-raised-button
-    class="mat-raised-button mat-primary btn"
-    (click)="onSendMessage()"
-  >
-    Send message from parent
-  </button>
+  <ng-template #first>
+    <app-first (clicked)="onFirstComponentClicked()"></app-first>
+  </ng-template>
 
-  <app-some-component
-    [message]="message"
-    (messageReceived)="onMessageReceived($event)"
-  ></app-some-component>
-  <app-some-component
-    [message]="message"
-    (messageReceived)="onMessageReceived($event)"
-  ></app-some-component>
-  <app-some-component
-    [message]="message"
-    (messageReceived)="onMessageReceived($event)"
-  ></app-some-component>
+  <ng-template #second>
+    <app-second (dataSubmitted)="onDataFromSecondComponentSubmitted($event)"></app-second>
+  </ng-template>
+
+  <ng-container [ngTemplateOutlet]="isFirstComponentClicked ? second : first"></ng-container>
+
+  <app-third
+    *ngIf="thirdComponentData"
+    [data]="thirdComponentData"
+  ></app-third>
 </div>

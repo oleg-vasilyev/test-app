@@ -1,0 +1,32 @@
+<div class="form-container">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <div
+      formArrayName="items"
+      *ngFor="let item of formControls; let i = index"
+    >
+      <mat-form-field
+        [formGroupName]="i"
+        class="control"
+      >
+        <input
+          matInput
+          placeholder="Fill input1"
+          formControlName="field"
+        >
+        <mat-error *ngIf="getArrayControl(i).invalid">field is invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-raised-button
+      type="submit"
+      class="mat-raised-button mat-accent"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

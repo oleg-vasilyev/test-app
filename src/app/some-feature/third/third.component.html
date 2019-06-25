@@ -1,0 +1,14 @@
+<table
+  matSort
+  (matSortChange)="sortData($event)"
+>
+  <tbody>
+    <tr>
+      <th mat-sort-header="field">Field</th>
+    </tr>
+
+    <tr *ngFor="let dataItem of sortedData">
+      <td>{{dataItem.field}}</td>
+    </tr>
+  </tbody>
+</table>
